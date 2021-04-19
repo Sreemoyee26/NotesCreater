@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,33 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>notes</title>
-    
+    <link rel="stylesheet"  href="{%  static  'css/styles.css'  %}">
 </head>
 
 <body>
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Notes
-                </h1>
-            </div>
-        </div>
-    </section>
+    <header>
+        <h1>
+         Notes
+        </h1>
+    </header>
 
-    <section class="section">
-        <div class="container">
-
-            <article class="media">
-                <div class="media-content">
-                    <div class="content">
-                        <a href="add">Add new note</a>
-                    </div>
-                </div>
-            </article>
-
-            {% for n in Notes %}
-                <article class="media">
+    <section class="sec">
+        <div>
+            {% for n in entries %}
                     <div class="media-content">
                         <div class="content">
                             <p>
@@ -40,10 +27,17 @@
                                 <br> {{ n.text }}
                             </p>
                         </div>
+                        <a href="view/{{n.id}}">view</a>
+                        <a href="update/{{n.id}}">update</a>
+                        <a href="delete/{{n.id}}">delete</a>
                     </div>
-                </article>
             {% endfor %}
-
+         
+            <article>
+                    <h1>
+                        <a href="add" class="adding">Add new note</a>
+                    </h1>
+            </article>
         </div>
 
     </section>

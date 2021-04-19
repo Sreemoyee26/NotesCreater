@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Notes</title>
+   <link rel="stylesheet"  href="{%  static  'css/styles.css'  %}">
+ </head>
+ <body>
+   <h1>NOTE VIEW</h1>
+   <form method="post">
+       <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{ note.created }}</strong>
+                                <br> {{ note.text }}
+                            </p>
+                        </div>
+                    </div>
+                </article>
+   </form>
+   <a href="../../">View all Notes</a>
+</body>  
+</html>

@@ -1,0 +1,48 @@
+body{
+    background-color:aquamarine;
+    margin: 30px;
+}
+
+h2,a.adding{
+    background-color:darkblue;
+    height:30px;
+    color: white;
+    text-align:center;
+}
+h1{
+    background-color:darkblue;
+    height:50px;
+    color: white;
+    text-align:center;
+}
+a{
+    margin:5px;
+    color: blue;
+}
+a:hover{
+    color:red;
+}
+div.content{
+    box-sizing:border-box;
+    height:150px;
+    width:200px;
+    margin:20px;
+    font-family: Englebert, Arial;
+    padding:2px;
+}
+div.media-content{
+
+    box-sizing:border-box;
+    height:200px;
+    width:220px;
+    background-color:rgb(214, 228, 26);
+    margin:20px;
+}
+section.sec{
+    box-sizing:border-box;
+    background-color:rgb(21, 247, 217);
+    margin:20px;
+}
+a.adding:hover{
+    color:rgb(213, 226, 29);
+}
