@@ -23,7 +23,10 @@
                 {% csrf_token %}
                 <div>
                     <div>
-                        {{ form.text }}
+                        <h2>Enter Notename</h2>
+                            {{ form.name }}
+                        <h2>Enter text</h2>
+                            {{ form.text }}
                     </div>
                 </div>
 

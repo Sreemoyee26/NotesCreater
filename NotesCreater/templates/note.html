@@ -15,33 +15,43 @@
         <h1>
          Notes
         </h1>
+        
+        {% if user.is_authenticated %}
+            <a href="{% url 'NotesCreater:logout' %}" class="log">Logout</a>
+        {% endif %}
+ 
     </header>
 
     <section class="sec">
-        <div>
+        <div class="align">
             {% for n in entries %}
                     <div class="media-content">
                         <div class="content">
                             <p>
-                                <strong>{{ n.created }}</strong>
+                                <h3> <strong> <u> {{ n.name }} </u> </strong> </h3>
                                 <br> {{ n.text }}
                             </p>
                         </div>
-                        <a href="view/{{n.id}}">view</a>
-                        <a href="update/{{n.id}}">update</a>
-                        <a href="delete/{{n.id}}">delete</a>
+                        <div class="date">
+                            <i>     {{ n.created}}     </i>
+                            <div>
+                                <h3>
+                                    <a href="view/{{n.id}}">view</a>
+                                    <a href="update/{{n.id}}">update</a>
+                                    <a href="delete/{{n.id}}">delete</a>
+                                </h3>
+                            </div>
+                        </div>
                     </div>
             {% endfor %}
-         
-            <article>
-                    <h1>
-                        <a href="add" class="adding">Add new note</a>
-                    </h1>
-            </article>
         </div>
-
     </section>
     <footer class="footer">
+    <article>
+        <h1>
+            <a href="add" class="adding">Add new note</a>
+        </h1>
+    </article>
     </footer>
 </body>
 

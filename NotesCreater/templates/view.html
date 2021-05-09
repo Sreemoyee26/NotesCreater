@@ -8,16 +8,19 @@
  <body>
    <h1>NOTE VIEW</h1>
    <form method="post">
-       <article class="media">
-                    <div class="media-content">
-                        <div class="content">
-                            <p>
-                                <strong>{{ note.created }}</strong>
-                                <br> {{ note.text }}
-                            </p>
-                        </div>
+       <div class="align">
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <h3> <strong> <u> {{ note.name }} </u> </strong> </h3>
+                        <br> {{ note.text }}
+                    </p>
+                </div>
+                    <div class="date">
+                        <i>     {{ note.created}}     </i>
                     </div>
-                </article>
+            </div>
+        </div>
    </form>
    <a href="../../">View all Notes</a>
 </body>  

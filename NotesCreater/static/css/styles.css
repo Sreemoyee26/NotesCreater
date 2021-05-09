@@ -1,5 +1,8 @@
+.{
+    box-sizing: border-box;
+}
 body{
-    background-color:aquamarine;
+    background-color:rgb(0, 0, 0);
     margin: 30px;
 }
 
@@ -16,7 +19,7 @@ h1{
     text-align:center;
 }
 a{
-    margin:5px;
+    margin:10px;
     color: blue;
 }
 a:hover{
@@ -25,24 +28,43 @@ a:hover{
 div.content{
     box-sizing:border-box;
     height:150px;
-    width:200px;
-    margin:20px;
+    width:80%;
+    margin:60px;
     font-family: Englebert, Arial;
-    padding:2px;
+    padding:5px;
 }
 div.media-content{
 
     box-sizing:border-box;
-    height:200px;
-    width:220px;
-    background-color:rgb(214, 228, 26);
-    margin:20px;
+    height:400px;
+    width:600px;
+    background: white url("images/note.jpg") no-repeat;
+    background-size: cover;
+    margin:40px;
 }
 section.sec{
     box-sizing:border-box;
-    background-color:rgb(21, 247, 217);
-    margin:20px;
+    background: rgb(0, 0, 0) url("images/bg3.jpg") no-repeat; 
+    background-size: cover;
+    margin:10px;
 }
 a.adding:hover{
     color:rgb(213, 226, 29);
+}
+div.align{
+     display:flex;
+     flex-wrap: wrap;
+     
+}
+strong{
+    display:block;
+    margin:2px;
+}
+div.date{
+    margin:65px;
+}
+div.front{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
 }
