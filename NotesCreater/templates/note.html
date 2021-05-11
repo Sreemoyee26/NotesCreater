@@ -16,10 +16,11 @@
          Notes
         </h1>
         
+        <h2>welcome {{user.username}}</h2>
         {% if user.is_authenticated %}
             <a href="{% url 'NotesCreater:logout' %}" class="log">Logout</a>
         {% endif %}
-        <h2>welcome {{user.username}}</h2>
+        
     </header>
 
     <section class="sec">
