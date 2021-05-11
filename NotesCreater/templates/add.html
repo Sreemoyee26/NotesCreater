@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{%  static  'css/styles.css'  %}">
 </head>
 
-<body>
+<body style="background-color:aqua">
     <header>
         <h1>
             Add Notes
@@ -19,7 +19,7 @@
     <section>
         <div>
 
-        <form method="POST" action="{% url 'NotesCreater:add' %}">
+        <form method="POST" action="{% url 'NotesCreater:add' user.id %}">
                 {% csrf_token %}
                 <div>
                     <div>

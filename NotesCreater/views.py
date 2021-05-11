@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.template import RequestContext, loader
+from django.template import RequestContext, loader, response
 from django.http import HttpResponse,HttpResponseNotFound
 from .models import Note
 from .forms import NoteForm
@@ -8,35 +8,41 @@ import datetime
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-
-def home(request):
-    return render(request,'index.html')
+from django.contrib.auth.models import User
+def home(response):
+    return render(response,'index.html')
 
 
 @login_required(login_url='/login/')
-def NotesProfile(request):
+def NotesProfile(response):
     
     entries = Note.objects.order_by('created')
     context = {'entries' : entries}
 
-    return render(request, 'note.html', context)
+    return render(response, 'note.html', context)
 
-def add(request):
-    if request.method == 'POST':
-        form = NoteForm(request.POST)
-
+def add(response,user_id):
+    if response.method == 'POST':
+        user = User.objects.get(pk=user_id)
+        form = NoteForm(response.POST)
+        
         if form.is_valid():
-            form.save()
+            #form.save()
+            n = form.cleaned_data["name"]
+            t = form.cleaned_data["text"]
+            entry = Note(name=n,text=t)
+            entry.save()
+            response.user.note.add(entry)
             return redirect('./result')
     else:
         form = NoteForm()
 
     context = {'form' : form}
 
-    return render(request, 'add.html', context)
+    return render(response, 'add.html', context)
 
-def result(request):
-        return render(request, 'result.html')
+def result(response,user_id):
+        return render(response, 'result.html')
 
 def update_note(request, id):
   try:
@@ -75,13 +81,13 @@ def delete(request, id):
         return render(request, 'delete.html')
 
 
-def registerView(request):
-    if request.method == "POST":
-        forms = UserCreationForm(request.POST)
+def registerView(response):
+    if response.method == "POST":
+        forms = UserCreationForm(response.POST)
         if forms.is_valid():
             forms.save()
             return redirect ('../../notes/login')
     else:
         forms = UserCreationForm()
 
-    return render(request, 'registration/register.html',{'forms':forms})
+    return render(response, 'registration/register.html',{'forms':forms})

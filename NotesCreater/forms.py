@@ -4,4 +4,4 @@ from .models import Note
 class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
-        exclude = ()
+        fields=('name','text',)
